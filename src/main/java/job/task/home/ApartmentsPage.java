@@ -30,8 +30,7 @@ public class ApartmentsPage extends BasePage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        driver.findElement(sortForCheapButton).click();
-
+//        driver.findElement(sortForCheapButton).click();
 
 //        List<WebElement> apartments = driver.findElements(By.xpath("//article[@data-name=\"CardComponent\"]"));
 //        apartments.stream().forEach(s-> System.out.println(s.getText()));
@@ -39,9 +38,11 @@ public class ApartmentsPage extends BasePage {
 //        Select select = new Select(driver.findElement(By.xpath("//div[@class=\"_93444fe79c--select--ndCyd\"]")));
 //        select.selectByVisibleText("По цене (сначала дешевле)");
 //        select.selectByIndex(1);
-//        List<WebElement> apartments = driver.findElements(By.xpath("//div[@data-name=\"SelectPopup\"]"));
-//        apartments.forEach(s-> System.out.println(s.getText()));
 
+//        List<WebElement> apartments = driver.findElements(By.xpath("//div[@data-name=\"SelectPopup\"]"));
+//        List<WebElement> apartments = driver.findElements(By.xpath("//div[@data-name=\"SummaryButtonWrapper\"][1]"));
+//        WebElement element = apartments.get(0);
+//        System.out.println(element.getText());
 
 //        List<WebElement> elements;
 ////        WebElement element = apartments.forEach(x->x.getAttribute("class"));
@@ -50,7 +51,7 @@ public class ApartmentsPage extends BasePage {
 //        WebElement element1 = apartments.stream().filter(x->x.getText().endsWith("asdad"));
 //        apartments.stream().forEach(x->str.add(x.getAttribute())).e;
 
-        driver.findElement(By.xpath("//div[@data-name=\"SelectPopup\"]")).click();
+        driver.findElement(By.xpath("//div[text()='По цене (сначала дешевле)']")).click();
 
         return this;
         
