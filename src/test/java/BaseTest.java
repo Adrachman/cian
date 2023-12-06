@@ -16,7 +16,6 @@ public class BaseTest {
     protected Cian cian = new Cian(driver);
     protected ApartmentsPage apartmentsPage = new ApartmentsPage(driver);
     public void setUp() {
-
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.getWindowHandle();
 

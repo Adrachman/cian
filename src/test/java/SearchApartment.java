@@ -7,5 +7,6 @@ public class SearchApartment extends BaseTest {
         basePage.open("https://samara.cian.ru/");
         cian.rentApartment();
         apartmentsPage.cheapApartment();
+        apartmentsPage.getFirstApartment();
     }
 }

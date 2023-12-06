@@ -1,5 +1,6 @@
 package job.task.home;
 
+import job.task.fileBuld.FileBuld;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -8,6 +9,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.lang.model.element.Element;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +29,35 @@ public class ApartmentsPage extends BasePage {
     }
     public ApartmentsPage cheapApartment(){
         driver.findElement(sortButton).click();
+        driver.findElement(By.xpath("//div[text()='По цене (сначала дешевле)']")).click();
         try {
             Thread.sleep(2500);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        return this;
+    }
+
+    public void getFirstApartment(){
+        List<WebElement> apartments = driver.findElements(By.xpath("//article[@data-name=\"CardComponent\"]"));
+        System.out.println(apartments.get(0).getText());
+        FileBuld.getFile();
+        FileBuld.putFile(apartments.get(0).getText());
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 //        driver.findElement(sortForCheapButton).click();
 
 //        List<WebElement> apartments = driver.findElements(By.xpath("//article[@data-name=\"CardComponent\"]"));
@@ -50,10 +78,3 @@ public class ApartmentsPage extends BasePage {
 //        apartments.stream().forEach(x->elements.add(x.getAttribute();
 //        WebElement element1 = apartments.stream().filter(x->x.getText().endsWith("asdad"));
 //        apartments.stream().forEach(x->str.add(x.getAttribute())).e;
-
-        driver.findElement(By.xpath("//div[text()='По цене (сначала дешевле)']")).click();
-
-        return this;
-        
-    }
-}
